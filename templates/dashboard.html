@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Portal - SmartFace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>SmartFace Attendance</h1>
+        <nav>
+            <a href="/">Live Scanner</a>
+            <a href="/dashboard" class="active">Teacher Portal</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2>Attendance Logs</h2>
+                <div class="dashboard-filters">
+                    <input type="date" id="dateFilter">
+                    <button id="downloadBtn" class="btn btn-secondary">Download Excel</button>
+                    <button id="notifyBtn" class="btn btn-primary">Notify Teacher</button>
+                </div>
+            </div>
+            
+            <div style="overflow-x:auto;">
+                <table id="attendanceTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Enrollment</th>
+                            <th>Name</th>
+                            <th>Branch</th>
+                            <th>Division</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be populated via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

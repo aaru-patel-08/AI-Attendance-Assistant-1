@@ -1,44 +1,15 @@
-# Root OS Files
-.DS_Store
-Thumbs.db
+﻿# Private registered face images
+known_faces/*
 
-# Frontend Exclusions
-frontend/node_modules/
-frontend/dist/
-frontend/build/
-frontend/dist-ssr/
-frontend/*.local
+# Keep the folder structure in Git
+!known_faces/.gitkeep
 
-# Backend Exclusions
-backend/venv/
-backend/.venv/
-backend/__pycache__/
-backend/*.pyc
-backend/data/*.db
+# Private attendance records
+attendance_records/*.xlsx
 
-# Python cache (global)
+# Python-generated files
 __pycache__/
 *.pyc
-*.pyo
-
-# Secret Environment Files (Anywhere in the repo)
+.venv/
+venv/
 .env
-.env.local
-.env.*.local
-*.env
-
-# IDE / Editors
-.vscode/
-.idea/
-
-# Logs
-*.log
-
-# Zip files (must not be in GitHub repo)
-*.zip
-*.rar
-*.tar.gz
-*.7z
-
-# Generated Excel reports (re-generated at runtime)
-backend/data/archive/*.xlsx

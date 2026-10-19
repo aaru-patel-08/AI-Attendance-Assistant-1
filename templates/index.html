@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Smart Attendance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>SmartFace Attendance</h1>
+        <nav>
+            <a href="/" class="active">Live Scanner</a>
+            <a href="/dashboard">Teacher Portal</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="camera-container">
+            <video id="videoElement" autoplay playsinline></video>
+            <canvas id="canvasElement" style="display:none;"></canvas>
+            <div class="controls">
+                <button id="startBtn" class="btn btn-primary">Start Scanner</button>
+                <button id="stopBtn" class="btn btn-secondary">Stop Scanner</button>
+            </div>
+            <p id="statusText" style="text-align:center; margin-top:1rem; color:var(--text-muted);">Camera inactive</p>
+        </div>
+
+        <!-- Pop-up Modal -->
+        <div class="modal-overlay" id="attendanceModal">
+            <div class="modal-card">
+                <div class="modal-header">
+                    Identity Verified
+                </div>
+                <div class="modal-body">
+                    <div class="match-images">
+                        <div class="image-box">
+                            <img id="capturedFace" src="" alt="Captured">
+                            <p>Captured</p>
+                        </div>
+                        <div class="image-box">
+                            <img id="storedFace" src="" alt="Stored">
+                            <p>Stored Profile</p>
+                        </div>
+                    </div>
+                    <div class="student-details">
+                        <p><strong>Name:</strong> <span id="mName"></span></p>
+                        <p><strong>Enrollment:</strong> <span id="mEnroll"></span></p>
+                        <p><strong>Branch:</strong> <span id="mBranch"></span></p>
+                        <p><strong>Division:</strong> <span id="mDiv"></span></p>
+                    </div>
+                    <div id="mStatus" class="status-badge"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
